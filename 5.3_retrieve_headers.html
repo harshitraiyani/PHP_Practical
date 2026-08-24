@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>5.3 Retrieve All Header Information</title>
+<script>
+function getHeaders() {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var headers = xhr.getAllResponseHeaders();
+            document.getElementById("output").innerHTML = "<pre>" + headers + "</pre>";
+        }
+    };
+    xhr.open("GET", "data.txt", true);
+    xhr.send();
+}
+</script>
+</head>
+<body>
+<h2>5.3 Retrieve All Header Information of a Resource (File)</h2>
+<button onclick="getHeaders()">Get Headers</button>
+<div id="output"></div>
+</body>
+</html>
