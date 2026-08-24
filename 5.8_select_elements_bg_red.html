@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>5.8 Select Elements and Set Background Color</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>This is a Heading</h1>
+<p class="para">This is paragraph one.</p>
+<p class="para">This is paragraph two.</p>
+<button id="btn1">Click Me</button>
+<button id="btn2">Another Button</button>
+
+<br><br>
+<button onclick="applyStyles()">Apply Red Background</button>
+
+<script>
+function applyStyles() {
+    // Different selectors
+    $("h1").css("background-color", "red");
+    $(".para").css("background-color", "red");
+    $("button").css("background-color", "red");
+}
+</script>
+</body>
+</html>
