@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>5.2 XMLHttpRequest with Callback Function</title>
+<script>
+function loadData(callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                callback(null, xhr.responseText);
+            } else {
+                callback("Error loading file", null);
+            }
+        }
+    };
+    xhr.open("GET", "data.txt", true);
+    xhr.send();
+}
+
+function handleResponse(error, data) {
+    if (error) {
+        document.getElementById("output").innerHTML = "Error: " + error;
+    } else {
+        document.getElementById("output").innerHTML = data;
+    }
+}
+
+function fetchData() {
+    loadData(handleResponse);
+}
+</script>
+</head>
+<body>
+<h2>5.2 XMLHttpRequest with Callback Function</h2>
+<button onclick="fetchData()">Fetch Data</button>
+<div id="output"></div>
+</body>
+</html>
