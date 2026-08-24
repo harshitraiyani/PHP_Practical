@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>5.9 Search Suggestions using jQuery AJAX</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+<h2>5.9 Search Suggestions</h2>
+Search: <input type="text" id="searchBox" placeholder="Type a fruit name...">
+<div id="suggestions"></div>
+
+<script>
+$(document).ready(function() {
+    $("#searchBox").on("keyup", function() {
+        var query = $(this).val();
+        if (query.length > 0) {
+            $.ajax({
+                url: "5.9_search.php",
+                method: "GET",
+                data: { term: query },
+                success: function(response) {
+                    $("#suggestions").html(response);
+                }
+            });
+        } else {
+            $("#suggestions").html("");
+        }
+    });
+});
+</script>
+</body>
+</html>
