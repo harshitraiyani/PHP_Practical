@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>5.7 Smooth Scroll to Top using jQuery</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+    body { height: 2000px; }
+    #scrollBtn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 15px;
+        display: none;
+    }
+</style>
+</head>
+<body>
+<h2>5.7 Scroll to Top Button using jQuery</h2>
+<p>Scroll down to see the button appear.</p>
+
+<button id="scrollBtn">Back to Top</button>
+
+<script>
+$(document).ready(function() {
+    // Show button after scrolling down
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 200) {
+            $("#scrollBtn").fadeIn();
+        } else {
+            $("#scrollBtn").fadeOut();
+        }
+    });
+
+    // Smooth scroll to top on click
+    $("#scrollBtn").click(function() {
+        $("html, body").animate({ scrollTop: 0 }, 600);
+    });
+});
+</script>
+</body>
+</html>
