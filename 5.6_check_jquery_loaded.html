@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>5.6 Check if jQuery is Loaded</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+<h2>5.6 Check if jQuery Library is Successfully Loaded</h2>
+<p id="status"></p>
+
+<script>
+$(document).ready(function() {
+    if (typeof jQuery != 'undefined') {
+        $("#status").text("jQuery is loaded successfully! Version: " + $.fn.jquery);
+        $("#status").css("color", "green");
+    } else {
+        document.getElementById("status").innerHTML = "jQuery is NOT available.";
+        document.getElementById("status").style.color = "red";
+    }
+});
+</script>
+</body>
+</html>
